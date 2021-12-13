@@ -150,16 +150,14 @@ public class Graph {
 		System.out.println("Enter distance: ");
 		distance = myObj.nextDouble();
 		
-		System.out.println("Adding an edge between " + cityA + " and " + cityB + ": " + distance);
+		System.out.println("Adding an edge between " + cityA + " and " + cityB + ": " + distance + " mi");
 		// Check for a link
 		
 
 		// do both directions
 		GraphNode a = cityMap.get(cityA); //where the key of city A is mapped to
 		GraphNode b = cityMap.get(cityB); //where the key of city B is mapped to
-		
-		System.out.println("Obtained values!");
-		
+				
 		//using created data
 		a.addEdge(b, distance);
 		b.addEdge(a, distance);
