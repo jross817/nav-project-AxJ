@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
 
-public class Graph extends Day22 {
+public class Graph {
 
 	// map from names of cities to nodes
 	private HashMap<String, GraphNode> cityMap;
@@ -157,8 +157,9 @@ public class Graph extends Day22 {
 		
 		System.out.println("Obtained values!");
 		
-		a.addEdge(new GraphNode(cityB), distance);
-		b.addEdge(new GraphNode(cityA), distance);
+		//using created data
+		a.addEdge(b, distance);
+		b.addEdge(a, distance);
 		
 		System.out.println("Successfully added edge to graph!");
 
