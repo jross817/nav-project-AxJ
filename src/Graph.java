@@ -61,11 +61,15 @@ public class Graph {
 	// Search for cities
 	// cities must be listed in order 
 	// use a scanner 
-	public void search(Scanner input) {
+	public void search() {
 		// TO DO:
 
-		//	Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-		//	System.out.println("Enter city");
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+		System.out.println("Enter city:");
+		String input = myObj.nextLine();
+
+		GraphNode city = cityMap.get(input);
+		city.outboundEdges
 
 		//Base case: No things to search for 
 		if(cityMap.isEmpty()) {
