@@ -69,7 +69,6 @@ public class Graph {
 		String input = myObj.nextLine();
 
 		GraphNode city = cityMap.get(input);
-		city.outboundEdges
 
 		//Base case: No things to search for 
 		if(cityMap.isEmpty()) {
@@ -156,8 +155,8 @@ public class Graph {
 		
 
 		// do both directions
-		GraphNode a = cityMap.get(cityA);
-		GraphNode b = cityMap.get(cityB);
+		GraphNode a = cityMap.get(cityA); //where the key of city A is mapped to
+		GraphNode b = cityMap.get(cityB); //where the key of city B is mapped to
 		
 		System.out.println("Obtained values!");
 		
