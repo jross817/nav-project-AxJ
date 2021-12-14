@@ -21,14 +21,18 @@ public class Graph {
 	// methods to implement 
 
 
+	// TO DO:
 	// Prompt the user to pick two cities. 
 	// Using Dijkstra's algorithm, 
 	// determine the shortest path is between those two cities 
 	// and report it to the user. The output must 
 	// include the total distance and the distance of each link.
 
-	public void findPath (String start, String end) {
-		// TO DO:
+	public void findPath (String start, String end) 
+	{
+		//Use my own data structure - Probing, Priority Queue
+		// Path class that we have to build ourselves
+		
 	}
 
 
@@ -96,29 +100,17 @@ public class Graph {
 
 		//		Do I have to make a graphNode
 
-		// Base Case: Empty Map
-		if(cityMap.isEmpty()) {
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+		System.out.println("Enter city:");
+		String input = myObj.nextLine();
+
+		// Base Case: The city is not in the map
+		if(!cityMap.containsKey(input)) {
 			System.out.println("There is no cities in list!");
 			return;
 		}
 
-		// Search for the city
-		// Pull the key set and put into an array of Strings
-		ArrayList<String> toSort = new ArrayList<String>(cityMap.keySet());
-		//		sorted.toArray();
-		String[] toSortAgain = toSort.toArray(new String[0]);
-		
-		Arrays.sort(toSortAgain);
-
-		for(String s : toSortAgain) {
-			if(s.equals(inputCity))
-			{
-				System.out.println(s);
-			}
-		}
-
-		// Base Case 2: The city is not in cityMap
-
+		cityMap.get(input).boundingEdges();
 	}
 
 
