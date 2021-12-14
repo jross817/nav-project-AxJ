@@ -38,11 +38,11 @@ public class Main {
 
 		String userResponse = "yes";
 		//Prompt for the Methods - We do not have to keep the name; I just thought about it on da fly
-		while (userResponse.compareTo("yes")== 0) {
+		while (true) {
 			System.out.println();
 			System.out.println("Welcome to MapMe ! \n\n Please enter an option below: \n"
 					+ " 1) List Cities in Order \n 2) Display Info of a City \n 3) Search Cities "
-					+ "\n 4) FindPath");
+					+ "\n 4) FindPath \n 5) Add a City \n 6) Exit");
 			Scanner input = new Scanner(System.in); // Create a Scanner object
 			String optionSelect = input.nextLine();
 
@@ -77,9 +77,10 @@ public class Main {
 			
 			}
 			
-			System.out.println();
-			System.out.println("Would you like to restart? (yes or no): ");
-			userResponse = input.nextLine();
+			if(optionSelect.compareTo("6")==0)
+			{
+				return;
+			}
 		}
 
 	}
