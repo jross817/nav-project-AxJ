@@ -38,6 +38,8 @@ public class Main {
 		
 		
 		newGraph.listInOrder();
+		System.out.println();
+		newGraph.search();
 	}
 
 }

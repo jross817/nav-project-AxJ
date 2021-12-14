@@ -55,7 +55,7 @@ public class Graph {
 			System.out.println(s);
 		}
 		
-		//ystem.out.println(Arrays.toString(toSortAgain));
+		//System.out.println(Arrays.toString(toSortAgain));
 
 		//		selectionSort(sorted);
 	}
@@ -71,19 +71,22 @@ public class Graph {
 
 		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("Enter city:");
-		String input = myObj.nextLine();
+		String input = myObj.nextLine();	
+		
+		
+		
+		// Pull the key set and put into an array of Strings
+		ArrayList<String> toSort = new ArrayList<String>(cityMap.keySet());
+		//		sorted.toArray();
+		String[] toSortAgain = toSort.toArray(new String[0]);
+		
+		Arrays.sort(toSortAgain);
 
-		GraphNode city = cityMap.get(input);
-
-		//Base case: No things to search for 
-		if(cityMap.isEmpty()) {
-			return;
-		}
-
-		// Now search 
-		//		for(String city : cityMap) { // do not need? 
-		if(cityMap.containsKey(input)) {
-			System.out.println();
+		for(String s : toSortAgain) {
+			if(s.contains(input))
+			{
+				System.out.println(s);
+			}
 		}
 	}
 	//	}
