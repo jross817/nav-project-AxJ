@@ -53,28 +53,19 @@ public class Main {
 
 			//DisplayInfo Option -- Needs Work
 			if(optionSelect.compareTo("2")==0) {
-
-				System.out.println("Please enter the letters/words your city(or cities may contain: ");
-				String in = input.nextLine();
-				newGraph.displayInfo(in);
+				newGraph.displayInfo();
 			}
+			
 			//Search City Option
 			if(optionSelect.compareTo("3")==0) {
 				newGraph.search();
 			} 
 
-
 			//FindPath option
 			if(optionSelect.compareTo("4")==0) {
-				System.out.println();
-				System.out.println("Please enter the city you are starting in: ");
-
-				String startCity = input.nextLine();
-				System.out.println("Please enter the city you are ending in: ");
-				String endCity = input.nextLine();
-
-				newGraph.findPath(startCity, endCity);
+				newGraph.findPath();
 			}
+			
 			System.out.println();
 			System.out.println("Would you like to restart? (yes or no): ");
 			userResponse = input.nextLine();

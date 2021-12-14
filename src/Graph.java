@@ -28,11 +28,17 @@ public class Graph {
 	// and report it to the user. The output must 
 	// include the total distance and the distance of each link.
 
-	public void findPath (String start, String end) 
+	public void findPath() 
 	{
 		//Use my own data structure - Probing, Priority Queue
-		// Path class that we have to build ourselves
-	
+		//Path class that we have to build ourselves
+		Scanner input = new Scanner(System.in);
+		// Prompt the user to pick two cities.
+		System.out.println("Please enter the city you are starting in: ");
+
+		String startCity = input.nextLine();
+		System.out.println("Please enter the city you are ending in: ");
+		String endCity = input.nextLine();
 		
 	}
 
@@ -97,15 +103,21 @@ public class Graph {
 	// then show the names and distances to any adjacent cities (one link away).
 	// The cities must be listed in order by distance
 
-	public void displayInfo(String inputCity) {
+	public void displayInfo() {
+		
+			Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+			System.out.println("Enter city:");
+			String input = myObj.nextLine();
+
+			cityMap.get(input).boundingEdges();
 
 		// Base Case: The city is not in the map
-		if(!cityMap.containsKey(inputCity)) {
+		if(!cityMap.containsKey(input)) {
 			System.out.println("There is no cities in list!");
 			return;
 		}
 		else {
-		cityMap.get(inputCity).boundingEdges();
+		cityMap.get(input).boundingEdges();
 		}
 	}
 		
@@ -155,6 +167,8 @@ public class Graph {
 		// System.out.println("Successfully added edge to graph!");
 
 	}
+
+
 
 
 }

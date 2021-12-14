@@ -23,8 +23,9 @@ public class GraphNode {
 	public void boundingEdges() {
 		// check its not empty
 		if(!outboundEdges.isEmpty()) {
+			System.out.println("Adjacent cities to " + this.location + " are: ");
 			for(GraphNode nextCity : outboundEdges.keySet()) {
-				System.out.println(nextCity.location + ", " + outboundEdges.get(nextCity));
+				System.out.println(nextCity.location + ", " + outboundEdges.get(nextCity) + " miles away");
 			}
 		}else {
 			System.out.println("City not in list!");
