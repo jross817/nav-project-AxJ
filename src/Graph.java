@@ -37,6 +37,7 @@ public class Graph {
 		System.out.println("Please enter the city you are starting in: ");
 
 		String startCity = input.nextLine();
+		
 		System.out.println("Please enter the city you are ending in: ");
 		String endCity = input.nextLine();
 		
@@ -98,7 +99,7 @@ public class Graph {
 		}
 	}
 
-	//SOS !
+	//Works!
 	// Prompt the user to select a city, 
 	// then show the names and distances to any adjacent cities (one link away).
 	// The cities must be listed in order by distance
@@ -118,7 +119,7 @@ public class Graph {
 		cityMap.get(input).boundingEdges();
 		}
 	}
-		
+	
 
 
 

@@ -67,6 +67,16 @@ public class Main {
 				newGraph.findPath();
 			}
 			
+			//Add City option
+			if(optionSelect.compareTo("5")==0)
+			{
+				System.out.println("Please enter City name: ");
+				userResponse = input.nextLine();
+				newGraph.add(userResponse);
+				System.out.println("Your city has been added!");
+			
+			}
+			
 			System.out.println();
 			System.out.println("Would you like to restart? (yes or no): ");
 			userResponse = input.nextLine();
