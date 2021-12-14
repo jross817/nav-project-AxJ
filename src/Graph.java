@@ -32,6 +32,7 @@ public class Graph {
 	{
 		//Use my own data structure - Probing, Priority Queue
 		// Path class that we have to build ourselves
+	
 		
 	}
 
@@ -91,27 +92,23 @@ public class Graph {
 		}
 	}
 
+	//Done!
 	// Prompt the user to select a city, 
 	// then show the names and distances to any adjacent cities (one link away).
 	// The cities must be listed in order by distance
 
 	public void displayInfo(String inputCity) {
-		// #5 and #3 do it in a queue
-
-		//		Do I have to make a graphNode
-
-		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-		System.out.println("Enter city:");
-		String input = myObj.nextLine();
 
 		// Base Case: The city is not in the map
-		if(!cityMap.containsKey(input)) {
+		if(!cityMap.containsKey(inputCity)) {
 			System.out.println("There is no cities in list!");
 			return;
 		}
-
-		cityMap.get(input).boundingEdges();
+		else {
+		cityMap.get(inputCity).boundingEdges();
+		}
 	}
+		
 
 
 

@@ -6,12 +6,9 @@ public class Path {
 	
 	private int length;
 	
-	// remember every class needs a constructor
-	
 	// Constructor 
-	public void Path(ArrayList<GraphNode> pathNodes, int length) {
+	public Path(ArrayList<GraphNode> pathNodes) {
 		this.pathNodes = pathNodes;
-		this.length = length;
 	}
 	
 	// methods to implement 
@@ -19,6 +16,7 @@ public class Path {
 	public void addNode(GraphNode node, int distance) {
 		// add node to the end,
 		// increase length by distance
+		
 	}
 	
 	
