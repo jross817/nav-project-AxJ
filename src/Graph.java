@@ -37,7 +37,6 @@ public class Graph {
 	// put the cities in order and return
 	// use compareTo to order them
 	public void listInOrder() {
-		// TO DO:
 
 		//the map is empty 
 		if(cityMap.isEmpty()) {
@@ -67,7 +66,6 @@ public class Graph {
 	// cities must be listed in order 
 	// use a scanner 
 	public void search() {
-		// TO DO:
 
 		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("Enter city:");
@@ -89,7 +87,6 @@ public class Graph {
 			}
 		}
 	}
-	//	}
 
 	// Prompt the user to select a city, 
 	// then show the names and distances to any adjacent cities (one link away).
@@ -107,12 +104,17 @@ public class Graph {
 		}
 
 		// Search for the city
-		for(String city : cityMap.keySet()) {
-			//if the city is found 
-			if(cityMap.containsKey(inputCity)) {
-				// Don't need?
-				//	if(city.key.compareTo(inputCity) == 0) {
+		// Pull the key set and put into an array of Strings
+		ArrayList<String> toSort = new ArrayList<String>(cityMap.keySet());
+		//		sorted.toArray();
+		String[] toSortAgain = toSort.toArray(new String[0]);
+		
+		Arrays.sort(toSortAgain);
 
+		for(String s : toSortAgain) {
+			if(s.equals(inputCity))
+			{
+				System.out.println(s);
 			}
 		}
 
@@ -122,7 +124,7 @@ public class Graph {
 
 
 
-	// DONE?
+	// DONE!
 	// Same thing as above
 	public void add(String cityName) {
 		// if it is not in the list then add
@@ -139,6 +141,7 @@ public class Graph {
 		}
 	}
 
+	//Done!
 	// Add/Update link
 	// Prompt the user to pick two cities. 
 	// If there is not already a link between those two cities, 
