@@ -109,8 +109,6 @@ public class Graph {
 			System.out.println("Enter city:");
 			String input = myObj.nextLine();
 
-			cityMap.get(input).boundingEdges();
-
 		// Base Case: The city is not in the map
 		if(!cityMap.containsKey(input)) {
 			System.out.println("There is no cities in list!");

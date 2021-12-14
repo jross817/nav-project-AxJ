@@ -39,6 +39,7 @@ public class Main {
 		String userResponse = "yes";
 		//Prompt for the Methods - We do not have to keep the name; I just thought about it on da fly
 		while (userResponse.compareTo("yes")== 0) {
+			System.out.println();
 			System.out.println("Welcome to MapMe ! \n\n Please enter an option below: \n"
 					+ " 1) List Cities in Order \n 2) Display Info of a City \n 3) Search Cities "
 					+ "\n 4) FindPath");
