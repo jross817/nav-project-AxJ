@@ -27,7 +27,7 @@ public class Main {
 				newGraph.add(data[1]);
 				double dis = Double.parseDouble(data[2]);
 				newGraph.addEdge(data[0], data[1], dis);
-				System.out.println("Ran once.");
+				// System.out.println("Ran once.");
 			}
 			input.close();
 		} catch (FileNotFoundException e) {
@@ -35,6 +35,9 @@ public class Main {
 			return;
 			
 		}
+		
+		
+		newGraph.listInOrder();
 	}
 
 }

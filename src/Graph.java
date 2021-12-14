@@ -48,9 +48,14 @@ public class Graph {
 		// Pull the key set and put into an array of Strings
 		ArrayList<String> toSort = new ArrayList<String>(cityMap.keySet());
 		//		sorted.toArray();
-		Arrays.sort(toSort.toArray());
+		String[] toSortAgain = toSort.toArray(new String[0]);
+		Arrays.sort(toSortAgain);
 
-		System.out.println(Arrays.toString(toSort.toArray()));
+		for(String s : toSortAgain) {
+			System.out.println(s);
+		}
+		
+		//ystem.out.println(Arrays.toString(toSortAgain));
 
 		//		selectionSort(sorted);
 	}
@@ -122,11 +127,12 @@ public class Graph {
 		// Check if it is already in the list
 		if(!cityMap.containsKey(cityName)) {
 			// add to list 
-			cityMap.put(cityName, null);
+			
+			cityMap.put(cityName, new GraphNode(cityName));
 		}
 
 		else {
-			System.out.println(" City is already in the list!");
+			//System.out.println(" City is already in the list!");
 		}
 	}
 
@@ -139,18 +145,8 @@ public class Graph {
 	public void addEdge (String cityA, String cityB, double distance) {
 
 		// Assume that both cities exist
-		listInOrder();
-
-		// Prompt User 
-		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-		System.out.println("Enter cityA: ");
-		cityA = myObj.nextLine ();
-		System.out.println("Enter cityB: ");
-		cityB = myObj.nextLine ();
-		System.out.println("Enter distance: ");
-		distance = myObj.nextDouble();
 		
-		System.out.println("Adding an edge between " + cityA + " and " + cityB + ": " + distance + " mi");
+		// System.out.println("Adding an edge between " + cityA + " and " + cityB + ": " + distance + " mi");
 		// Check for a link
 		
 
@@ -162,7 +158,7 @@ public class Graph {
 		a.addEdge(b, distance);
 		b.addEdge(a, distance);
 		
-		System.out.println("Successfully added edge to graph!");
+		// System.out.println("Successfully added edge to graph!");
 
 	}
 
