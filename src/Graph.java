@@ -60,8 +60,7 @@ public class Graph {
 	}
 
 
-
-
+	//DONE!
 	// Search for cities
 	// cities must be listed in order 
 	// use a scanner 
