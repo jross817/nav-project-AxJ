@@ -92,7 +92,7 @@ public class Graph {
 		}
 	}
 
-	//Done!
+	//SOS !
 	// Prompt the user to select a city, 
 	// then show the names and distances to any adjacent cities (one link away).
 	// The cities must be listed in order by distance
