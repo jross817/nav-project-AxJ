@@ -71,9 +71,26 @@ public class Main {
 			if(optionSelect.compareTo("5")==0)
 			{
 				System.out.println("Please enter City name: ");
-				userResponse = input.nextLine();
+				String addCity = input.nextLine();
 				newGraph.add(userResponse);
 				System.out.println("Your city has been added!");
+				
+				System.out.println("Would you like to add an edge? (y/n)");
+				userResponse = input.nextLine();
+				
+				//Adding an Edge
+				if(userResponse.compareTo("y")==0)
+				{
+					System.out.println("Please enter an edge city: ");
+					String edgeCity = input.nextLine();
+					
+					System.out.println("Please enter the distance: ");
+					double in = input.nextDouble();
+					
+					newGraph.addEdge(addCity, edgeCity, in);
+					
+					System.out.println("Edge has been created");
+				}
 			
 			}
 			

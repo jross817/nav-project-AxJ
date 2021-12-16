@@ -41,6 +41,13 @@ public class Graph {
 		System.out.println("Please enter the city you are ending in: ");
 		String endCity = input.nextLine();
 		
+		
+		
+	}
+	
+	public void findPathHelper()
+	{
+		
 	}
 
 
@@ -136,7 +143,7 @@ public class Graph {
 		}
 
 		else {
-			//System.out.println(" City is already in the list!");
+			System.out.println(" City is already in the list!");
 		}
 	}
 

@@ -3,11 +3,11 @@ import java.util.ArrayList;
 public class Path {
 
 	private ArrayList<GraphNode> pathNodes;
-
+	private double distance;
 	// Constructor 
 	public Path(ArrayList<GraphNode> pathNodes) {
 		this.pathNodes = pathNodes;
-		
+		distance = 0;
 	}
 	
 	// methods to implement 
