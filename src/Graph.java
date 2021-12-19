@@ -107,7 +107,7 @@ public class Graph {
 
 //		Dequeue the shortest path from pathQueue, storing it in currentPath.
 //		Set currentLocation to the last city in currentPath.
-		//currentLocation = currentPath.getLastNode();
+		currentLocation = currentPath.getLastNode();
 //		currentPath is now set to the best path! You can report it to the user.
 	}
 
