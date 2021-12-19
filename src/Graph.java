@@ -105,15 +105,30 @@ public class Graph {
 
 
 //		Dequeue the shortest path from pathQueue, storing it in currentPath.
+		
+		for(int i=0; i< pathQueue.size(); i++)
+		{
+
+			if(pathQueue.get(i).getLength() > pathQueue.get(i+1).getLength())
+			{
+				currentPath = pathQueue.get(i+1);
+			}
+			
+			else
+			{
+				currentPath = pathQueue.get(i);
+			}	
+		}
 //		Set currentLocation to the last city in currentPath.
 		currentLocation = currentPath.getLastNode();
 //		currentPath is now set to the best path! You can report it to the user.
+		
+		System.out.println();
 	}
 
 
 
 	// List cities in alphabetical order
-
 	// put the cities in order and return
 	// use compareTo to order them
 	public void listInOrder() {
