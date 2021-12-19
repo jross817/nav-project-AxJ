@@ -2,26 +2,28 @@ import java.util.ArrayList;
 
 public class Path {
 
-	private ArrayList<GraphNode> pathNodes;
+	private ArrayList<String> pathNodes;
 	private double distance;
+	private int length;
 	// Constructor 
-	public Path(ArrayList<GraphNode> pathNodes) {
+	public Path(ArrayList<String> pathNodes) {
 		this.pathNodes = pathNodes;
 		distance = 0.0;
+		length = 1;
 	}
 	
 	// methods to implement 
 	
-	public void addNode(GraphNode node, double distance) {
+	public void addNode(String node, double distance) {
 		// add node to the end,
 		// increase length by distance
 		
 		pathNodes.add(node);
-		node.addEdge(getLastNode(), distance);
+		length+=distance;
 	}
 	
 	
-	public GraphNode getLastNode() {
+	public String getLastNode() {
 		return pathNodes.get(pathNodes.size()); // placeholder
 	}
 
