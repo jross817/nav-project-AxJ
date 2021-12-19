@@ -79,9 +79,26 @@ public class Graph {
 	
 //				Add all paths ending with currentLocation's adjacent cities into pathQueue, skipping any already in distanceTable.
 				//For all of currentLocation's adjacent cities (from cityMap)
-					//If adjacentCities are not already in distanceTable
-						//Make new Path, copy previous, and add the city to that Path.
-						//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
+
+				for(GraphNode loc: cityMap.get(currentLocation).getOutboundEdges().keySet())
+				{
+					for(Double i: cityMap.get(currentLocation).getOutboundEdges().values())
+					{
+						String adjCity = loc.toString();
+						//If adjacentCities are not already in distanceTable
+						if(!distanceTable.containsKey(adjCity)){
+							//Make new Path, copy previous, and add the city to that Path.
+							Path p1 = new Path(currentPath);
+							
+							p1.addNode(adjCity,i); 
+							//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
+							pathQueue.add(p1);
+						}
+						
+					}
+
+				}
+					
 			}
 			
 		}
@@ -90,7 +107,7 @@ public class Graph {
 
 //		Dequeue the shortest path from pathQueue, storing it in currentPath.
 //		Set currentLocation to the last city in currentPath.
-		//currentLocation = currentPath.getLastNode().toString();
+		//currentLocation = currentPath.getLastNode();
 //		currentPath is now set to the best path! You can report it to the user.
 	}
 
