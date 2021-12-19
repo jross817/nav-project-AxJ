@@ -31,7 +31,7 @@ public class Graph {
 	{
 		
 //		distanceTable - a hashmap whose keys are city names and values are distances
-		HashMap<String,Double> distanceTable = null;
+		HashMap<String,Double> distanceTable = new HashMap <String,Double>();
 		
 //		currentLocation - a city name, initialed to the value of start
 		String currentLocation;
@@ -43,7 +43,7 @@ public class Graph {
 //		currentPath - a Path object, initialized to contain only the start and a distance of 0
 		
 //		pathQueue - a priority queue of Path objects 
-		PriorityQueue<Path> pathQueue = new PriorityQueue<Path>();
+		ArrayList<Path> pathQueue = new ArrayList<Path>();
 		
 		//Scanner for start and end locations
 		Scanner scan = new Scanner(System.in);
@@ -82,18 +82,17 @@ public class Graph {
 
 				for(GraphNode loc: cityMap.get(currentLocation).getOutboundEdges().keySet())
 				{
-					for(Double i: cityMap.get(currentLocation).getOutboundEdges().values())
-					{
+					
 						String adjCity = loc.toString();
 						//If adjacentCities are not already in distanceTable
 						if(!distanceTable.containsKey(adjCity)){
 							//Make new Path, copy previous, and add the city to that Path.
 							Path p1 = new Path(currentPath);
 							
-							p1.addNode(adjCity,i); 
+							p1.addNode(adjCity,cityMap.get(loc)); 
 							//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
 							pathQueue.add(p1);
-						}
+						
 						
 					}
 
