@@ -8,6 +8,7 @@ public class Path {
 	// Constructor 
 	public Path(String newCity)
 	{
+		pathNodes = new ArrayList <String>();
 		pathNodes.add(newCity);
 		this.length = 0;
 	}
@@ -16,7 +17,14 @@ public class Path {
 	//Make a copy of another 
 	public Path(Path otherPath)
 	{
-		Path p1 = new Path(otherPath);
+		pathNodes = new ArrayList<String>();
+		
+		for(String city: otherPath.pathNodes)
+		{
+			pathNodes.add(city);
+		}
+		
+		length = otherPath.length;
 	}
 	
 	// methods to implement 
@@ -36,7 +44,5 @@ public class Path {
 	public Integer getSize() {
 		return pathNodes.size();
 	}
-	
-	
 
 }
