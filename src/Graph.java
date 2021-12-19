@@ -1,9 +1,8 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Scanner;
 
 public class Graph {
 
@@ -30,25 +29,74 @@ public class Graph {
 
 	public void findPath() 
 	{
-		//Use my own data structure - Probing, Priority Queue
-		//Path class that we have to build ourselves
-		Scanner input = new Scanner(System.in);
-		// Prompt the user to pick two cities.
-		System.out.println("Please enter the city you are starting in: ");
-
-		String startCity = input.nextLine();
 		
-		System.out.println("Please enter the city you are ending in: ");
-		String endCity = input.nextLine();
+//		distanceTable - a hashmap whose keys are city names and values are distances
+		HashMap<String,Double> distanceTable = null;
+		
+//		currentLocation - a city name, initialed to the value of start
+		String currentLocation;
+		
+		//Start Location and End Location
+		String startLoc;
+		String endLoc;
+		
+//		currentPath - a Path object, initialized to contain only the start and a distance of 0
+		 null;
+		
+//		pathQueue - a priority queue of Path objects 
+		PriorityQueue<Path> pathQueue = new PriorityQueue<Path>();
+		
+		//Scanner for start and end locations
+		Scanner scan = new Scanner(System.in);
+		
+		//Get the data!
+		System.out.println("Please enter the starting location: ");
+		startLoc = scan.nextLine();
 		
 		
+		//Initialize Starter Location to input
+		currentLocation = startLoc;
 		
-	}
+		//initialize current path to contain only the start and a distance of 0
+			//Path currentPath = (new GraphNode (currentLocation), 0);
+		
+		//Add starter location to distance map with distance 0
+		distanceTable.put(startLoc, 0.0);
+		
+		System.out.println("Please enter the end location: ");
+		endLoc = scan.nextLine();
+		
+		
+//		Algorithm Steps
+//		While currentLocation is not equal to end:
+		
+		while(currentLocation.compareTo(endLoc)!=0)
+		{
+//			If currentLocation is not already in distanceTable:
+			if(!distanceTable.containsKey(currentLocation))
+			{
+//				Add currentLocation to distanceTable, setting its distance value to the currentPath's length
+				
+				// How do i get currentPath's length or # of items?
+				//Would it be more effective to find it distance from the LastNode of CurrPath?
+				//distanceTable.put(currentLocation,);
 	
-	public void findPathHelper()
-	{
-		
+//				Add all paths ending with currentLocation's adjacent cities into pathQueue, skipping any already in distanceTable.
+				
+				//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
+				// Can outbound edges do that?
+			}
+			
+		}
+
+
+
+//		Dequeue the shortest path from pathQueue, storing it in currentPath.
+//		Set currentLocation to the last city in currentPath.
+		currentLocation = currentPath.getLastNode().toString();
+//		currentPath is now set to the best path! You can report it to the user.
 	}
+
 
 
 	// List cities in alphabetical order

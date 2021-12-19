@@ -7,7 +7,7 @@ public class Path {
 	// Constructor 
 	public Path(ArrayList<GraphNode> pathNodes) {
 		this.pathNodes = pathNodes;
-		distance = 0;
+		distance = 0.0;
 	}
 	
 	// methods to implement 
