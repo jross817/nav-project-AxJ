@@ -3,13 +3,20 @@ import java.util.ArrayList;
 public class Path {
 
 	private ArrayList<String> pathNodes;
-	private double distance;
-	private int length;
+	private double length;
+	
 	// Constructor 
-	public Path(ArrayList<String> pathNodes) {
-		this.pathNodes = pathNodes;
-		distance = 0.0;
-		length = 0;
+	public Path(String newCity)
+	{
+		pathNodes.add(newCity);
+		this.length = 0;
+	}
+
+	
+	//Make a copy of another 
+	public Path(Path otherPath)
+	{
+		Path p1 = new Path(otherPath);
 	}
 	
 	// methods to implement 
@@ -26,16 +33,10 @@ public class Path {
 	public String getLastNode() {
 		return pathNodes.get(pathNodes.size()-1); // placeholder
 	}
-	
-	public Integer getDistance()
-	{
-		return length;
-		
+	public Integer getSize() {
+		return pathNodes.size();
 	}
 	
-	public Integer getLength()
-	{
-		return length;
-	}
+	
 
 }
