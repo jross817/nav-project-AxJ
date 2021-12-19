@@ -9,7 +9,7 @@ public class Path {
 	public Path(ArrayList<String> pathNodes) {
 		this.pathNodes = pathNodes;
 		distance = 0.0;
-		length = 1;
+		length = 0;
 	}
 	
 	// methods to implement 
