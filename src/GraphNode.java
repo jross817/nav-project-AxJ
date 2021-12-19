@@ -21,6 +21,10 @@ public class GraphNode {
 		outboundEdges.put(otherNode, distance);
 	}
 	
+	public void addEdge(String cityName, double distance) {
+		outboundEdges.put(new GraphNode(cityName), distance);
+	}
+	
 	public void boundingEdges() {
 		// check its not empty
 		if(!outboundEdges.isEmpty()) {

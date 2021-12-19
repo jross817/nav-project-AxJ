@@ -41,7 +41,6 @@ public class Graph {
 		String endLoc;
 		
 //		currentPath - a Path object, initialized to contain only the start and a distance of 0
-		 null;
 		
 //		pathQueue - a priority queue of Path objects 
 		PriorityQueue<Path> pathQueue = new PriorityQueue<Path>();
@@ -93,7 +92,7 @@ public class Graph {
 
 //		Dequeue the shortest path from pathQueue, storing it in currentPath.
 //		Set currentLocation to the last city in currentPath.
-		currentLocation = currentPath.getLastNode().toString();
+		//currentLocation = currentPath.getLastNode().toString();
 //		currentPath is now set to the best path! You can report it to the user.
 	}
 
