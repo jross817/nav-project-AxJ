@@ -41,8 +41,8 @@ public class Path {
 	public String getLastNode() {
 		return pathNodes.get(pathNodes.size()-1); // placeholder
 	}
-	public Integer getSize() {
-		return pathNodes.size();
+	public Double getLength() {
+		return length;
 	}
 
 }

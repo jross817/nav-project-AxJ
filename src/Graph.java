@@ -57,7 +57,7 @@ public class Graph {
 		currentLocation = startLoc;
 		
 		//initialize current path to contain only the start and a distance of 0
-			//Path currentPath = (new GraphNode (currentLocation), 0);
+		Path currentPath = new Path(currentLocation);
 		
 		//Add starter location to distance map with distance 0
 		distanceTable.put(startLoc, 0.0);
@@ -75,15 +75,13 @@ public class Graph {
 			if(!distanceTable.containsKey(currentLocation))
 			{
 //				Add currentLocation to distanceTable, setting its distance value to the currentPath's length
-				
-				// How do i get currentPath's length or # of items?
-				//Would it be more effective to find it distance from the LastNode of CurrPath?
-				//distanceTable.put(currentLocation,);
+				distanceTable.put(currentLocation,currentPath.getLength());
 	
 //				Add all paths ending with currentLocation's adjacent cities into pathQueue, skipping any already in distanceTable.
-				
-				//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
-				// Can outbound edges do that?
+				//For all of currentLocation's adjacent cities (from cityMap)
+					//If adjacentCities are not already in distanceTable
+						//Make new Path, copy previous, and add the city to that Path.
+						//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
 			}
 			
 		}
