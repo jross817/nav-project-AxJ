@@ -135,12 +135,16 @@ public class Graph {
 		
 //		Set currentLocation to the last city in currentPath.
 		currentLocation = currentPath.getLastNode();
+		
+//		currentPath is now set to the best path! You can report it to the user.
+		currentPath.printPath();
 	}
 	
 		
 		
-//		currentPath is now set to the best path! You can report it to the user.
 
+
+	
 
 
 
@@ -235,7 +239,7 @@ public class Graph {
 		}
 
 		else {
-			System.out.println(" City is already in the list!");
+			//System.out.println(" City is already in the list!");
 		}
 	}
 
