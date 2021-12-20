@@ -55,4 +55,9 @@ public class GraphNode {
 	public HashMap<GraphNode, Double> getOutboundEdges(){
 		return outboundEdges;
 	}
+	
+	public String getLocation()
+	{
+		return location;
+	}
 }

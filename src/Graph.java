@@ -90,8 +90,8 @@ public class Graph {
 				for(GraphNode loc: cities.keySet())
 				{
 
-					String adjCity = loc.toString();
 
+					String adjCity = loc.getLocation();
 					//If adjacentCities are not already in distanceTable
 					if(!distanceTable.containsKey(adjCity)){
 						//Make new Path, copy previous, and add the city to that Path.
