@@ -58,8 +58,7 @@ public class Graph {
 		//Initialize Starter Location to input
 		currentLocation = startLoc;
 
-		//	      Index for the shortest path!
-		int pathIndex=0;
+
 
 		//initialize current path to contain only the start and a distance of 0
 		Path currentPath = new Path(currentLocation);
@@ -111,39 +110,33 @@ public class Graph {
 
 			//		Dequeue the shortest path from pathQueue, storing it in currentPath.
 
+			//	      Index for the shortest path!
+			int pathIndex=0;
 			for(int i=0; i< pathQueue.size(); i++)
 			{
 
-				if(pathQueue.get(pathIndex).getLength() > pathQueue.get(i+1).getLength())
-				{
-					currentPath = pathQueue.get(i+1);
-					pathIndex=i+1;
-				}
-
-				else
+				if(pathQueue.get(pathIndex).getLength() > pathQueue.get(i).getLength())
 				{
 					currentPath = pathQueue.get(i);
-					pathIndex = i;
-				}	
+					pathIndex=i;
+				}
 
-				System.out.println("The shortest path found so far is: " + pathIndex);
+
+
+				currentPath = pathQueue.remove(pathIndex);
+
+				//		Set currentLocation to the last city in currentPath.
+				currentLocation = currentPath.getLastNode();
 
 			}
 
 
-			currentPath = pathQueue.remove(pathIndex);
 
-			//		Set currentLocation to the last city in currentPath.
-			currentLocation = currentPath.getLastNode();
 
+
+			//		currentPath is now set to the best path! You can report it to the user.
+			currentPath.printPath();
 		}
-
-
-
-
-
-		//		currentPath is now set to the best path! You can report it to the user.
-		currentPath.printPath();
 	}
 
 
