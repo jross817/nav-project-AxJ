@@ -123,10 +123,20 @@ public class Graph {
 				currentPath = pathQueue.get(i);
 				pathIndex = i;
 			}	
+			
+			System.out.println("The shortest path found so far is: " + pathIndex);
+			
 		}
 //		Set currentLocation to the last city in currentPath.
 		currentLocation = currentPath.getLastNode();
+		
+		
 //		currentPath is now set to the best path! You can report it to the user.
+		System.out.print("The shortest path is: ");
+		for(int i =0; i < currentPath.getSize(); i++) 
+		{
+			System.out.print("");
+		}
 		
 		System.out.println();
 	}

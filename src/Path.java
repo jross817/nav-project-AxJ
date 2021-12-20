@@ -44,5 +44,17 @@ public class Path {
 	public Double getLength() {
 		return length;
 	}
+	
+	public int getSize() {
+		
+		int count = 0;
+		
+		for (int i=0; i < pathNodes.size();i++)
+		{
+			count +=1;
+		}
+		
+		return count;
+	}
 
 }
