@@ -29,125 +29,128 @@ public class Graph {
 
 	public void findPath() 
 	{
-		
-//		distanceTable - a hashmap whose keys are city names and values are distances
-		HashMap<String,Double> distanceTable = new HashMap <String,Double>();
-		
-//		currentLocation - a city name, initialed to the value of start
-		String currentLocation;
-		
 
-		
+		//		distanceTable - a hashmap whose keys are city names and values are distances
+		HashMap<String,Double> distanceTable = new HashMap <String,Double>();
+
+		//		currentLocation - a city name, initialed to the value of start
+		String currentLocation;
+
+
+
 		//Start Location and End Location
 		String startLoc;
 		String endLoc;
-		
-//		currentPath - a Path object, initialized to contain only the start and a distance of 0
-		
-//		pathQueue - a priority queue of Path objects 
+
+		//		currentPath - a Path object, initialized to contain only the start and a distance of 0
+
+		//		pathQueue - a priority queue of Path objects 
 		ArrayList<Path> pathQueue = new ArrayList<Path>();
-		
+
 		//Scanner for start and end locations
 		Scanner scan = new Scanner(System.in);
-		
+
 		//Get the data!
 		System.out.println("Please enter the starting location: ");
 		startLoc = scan.nextLine();
-		
-		
+
+
 		//Initialize Starter Location to input
 		currentLocation = startLoc;
-		
-//	      Index for the shortest path!
-			int pathIndex=0;
-		
+
+		//	      Index for the shortest path!
+		int pathIndex=0;
+
 		//initialize current path to contain only the start and a distance of 0
 		Path currentPath = new Path(currentLocation);
-		
+
 		//Add starter location to distance map with distance 0
 		distanceTable.put(startLoc, 0.0);
-		
+
 		System.out.println("Please enter the end location: ");
 		endLoc = scan.nextLine();
-		
-		
-//		Algorithm Steps
-//		While currentLocation is not equal to end:
-		
+
+
+		//		Algorithm Steps
+		//		While currentLocation is not equal to end:
+
 		while(currentLocation.compareTo(endLoc)!=0)
 		{
-//			If currentLocation is not already in distanceTable:
+			//			If currentLocation is not already in distanceTable:
 			if(!distanceTable.containsKey(currentLocation))
 			{
-//				Add currentLocation to distanceTable, setting its distance value to the currentPath's length
+				//				Add currentLocation to distanceTable, setting its distance value to the currentPath's length
 				distanceTable.put(currentLocation,currentPath.getLength());
-	
-//				Add all paths ending with currentLocation's adjacent cities into pathQueue, skipping any already in distanceTable.
+
+				//				Add all paths ending with currentLocation's adjacent cities into pathQueue, skipping any already in distanceTable.
 				//For all of currentLocation's adjacent cities (from cityMap.getOutboundedges)
 
 				HashMap<GraphNode,Double> cities = cityMap.get(currentLocation).getOutboundEdges();
-				
+
 				for(GraphNode loc: cities.keySet())
 				{
-					
-						String adjCity = loc.toString();
-						
-						//If adjacentCities are not already in distanceTable
-						if(!distanceTable.containsKey(adjCity)){
-							//Make new Path, copy previous, and add the city to that Path.
-							Path p1 = new Path(currentPath);
-							
-							p1.addNode(adjCity,cities.get(loc).doubleValue()); 
-							//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
-							pathQueue.add(p1);
-						
-						
+
+					String adjCity = loc.toString();
+
+					//If adjacentCities are not already in distanceTable
+					if(!distanceTable.containsKey(adjCity)){
+						//Make new Path, copy previous, and add the city to that Path.
+						Path p1 = new Path(currentPath);
+
+						p1.addNode(adjCity,cities.get(loc).doubleValue()); 
+						//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
+						pathQueue.add(p1);
+
+
 					}
 
 				}
-					
+
 			}
-			
+
+
+			//		Dequeue the shortest path from pathQueue, storing it in currentPath.
+
+			for(int i=0; i< pathQueue.size(); i++)
+			{
+
+				if(pathQueue.get(pathIndex).getLength() > pathQueue.get(i+1).getLength())
+				{
+					currentPath = pathQueue.get(i+1);
+					pathIndex=i+1;
+				}
+
+				else
+				{
+					currentPath = pathQueue.get(i);
+					pathIndex = i;
+				}	
+
+				System.out.println("The shortest path found so far is: " + pathIndex);
+
+			}
+
+
+			currentPath = pathQueue.remove(pathIndex);
+
+			//		Set currentLocation to the last city in currentPath.
+			currentLocation = currentPath.getLastNode();
+
 		}
 
 
 
-//		Dequeue the shortest path from pathQueue, storing it in currentPath.
-		
-		for(int i=0; i< pathQueue.size(); i++)
-		{
 
-			if(pathQueue.get(pathIndex).getLength() > pathQueue.get(i+1).getLength())
-			{
-				currentPath = pathQueue.get(i+1);
-				pathIndex=i+1;
-			}
-			
-			else
-			{
-				currentPath = pathQueue.get(i);
-				pathIndex = i;
-			}	
-			
-			System.out.println("The shortest path found so far is: " + pathIndex);
-			
-		}
-		
-	
-		currentPath = pathQueue.remove(pathIndex);
-		
-//		Set currentLocation to the last city in currentPath.
-		currentLocation = currentPath.getLastNode();
-		
-//		currentPath is now set to the best path! You can report it to the user.
+
+		//		currentPath is now set to the best path! You can report it to the user.
 		currentPath.printPath();
 	}
-	
-		
-		
 
 
-	
+
+
+
+
 
 
 
@@ -171,7 +174,7 @@ public class Graph {
 		for(String s : toSortAgain) {
 			System.out.println(s);
 		}
-		
+
 		//System.out.println(Arrays.toString(toSortAgain));
 
 		//		selectionSort(sorted);
@@ -187,14 +190,14 @@ public class Graph {
 		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("Enter city:");
 		String input = myObj.nextLine();	
-		
-		
-		
+
+
+
 		// Pull the key set and put into an array of Strings
 		ArrayList<String> toSort = new ArrayList<String>(cityMap.keySet());
 		//		sorted.toArray();
 		String[] toSortAgain = toSort.toArray(new String[0]);
-		
+
 		Arrays.sort(toSortAgain);
 
 		for(String s : toSortAgain) {
@@ -211,10 +214,10 @@ public class Graph {
 	// The cities must be listed in order by distance
 
 	public void displayInfo() {
-		
-			Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-			System.out.println("Enter city:");
-			String input = myObj.nextLine();
+
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+		System.out.println("Enter city:");
+		String input = myObj.nextLine();
 
 		// Base Case: The city is not in the map
 		if(!cityMap.containsKey(input)) {
@@ -222,10 +225,10 @@ public class Graph {
 			return;
 		}
 		else {
-		cityMap.get(input).boundingEdges();
+			cityMap.get(input).boundingEdges();
 		}
 	}
-	
+
 
 
 
@@ -237,7 +240,7 @@ public class Graph {
 		// Check if it is already in the list
 		if(!cityMap.containsKey(cityName)) {
 			// add to list 
-			
+
 			cityMap.put(cityName, new GraphNode(cityName));
 		}
 
@@ -256,19 +259,19 @@ public class Graph {
 	public void addEdge (String cityA, String cityB, double distance) {
 
 		// Assume that both cities exist
-		
+
 		// System.out.println("Adding an edge between " + cityA + " and " + cityB + ": " + distance + " mi");
 		// Check for a link
-		
+
 
 		// do both directions
 		GraphNode a = cityMap.get(cityA); //where the key of city A is mapped to
 		GraphNode b = cityMap.get(cityB); //where the key of city B is mapped to
-				
+
 		//using created data
 		a.addEdge(b, distance);
 		b.addEdge(a, distance);
-		
+
 		// System.out.println("Successfully added edge to graph!");
 
 	}
