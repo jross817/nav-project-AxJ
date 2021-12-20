@@ -48,7 +48,12 @@ public class Path {
 	
 	public void printPath()
 	{
-		
+		System.out.print("The shortest path is: ");
+	
+		for(int i=0; i < pathNodes.size(); i++)
+		{
+			System.out.print(pathNodes.get(i)+ "-");
+		}
 	}
 
 }
