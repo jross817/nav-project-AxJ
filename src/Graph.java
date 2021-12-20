@@ -36,8 +36,7 @@ public class Graph {
 //		currentLocation - a city name, initialed to the value of start
 		String currentLocation;
 		
-//      Index for the shortest path!
-		int pathIndex=0;
+
 		
 		//Start Location and End Location
 		String startLoc;
@@ -58,6 +57,9 @@ public class Graph {
 		
 		//Initialize Starter Location to input
 		currentLocation = startLoc;
+		
+//	      Index for the shortest path!
+			int pathIndex=0;
 		
 		//initialize current path to contain only the start and a distance of 0
 		Path currentPath = new Path(currentLocation);
@@ -115,7 +117,7 @@ public class Graph {
 		for(int i=0; i< pathQueue.size(); i++)
 		{
 
-			if(pathQueue.get(i).getLength() > pathQueue.get(i+1).getLength())
+			if(pathQueue.get(pathIndex).getLength() > pathQueue.get(i+1).getLength())
 			{
 				currentPath = pathQueue.get(i+1);
 				pathIndex=i+1;
@@ -131,7 +133,8 @@ public class Graph {
 			
 		}
 		
-		pathQueue.remove(pathIndex);
+	
+		currentPath = pathQueue.remove(pathIndex);
 		
 //		Set currentLocation to the last city in currentPath.
 		currentLocation = currentPath.getLastNode();
