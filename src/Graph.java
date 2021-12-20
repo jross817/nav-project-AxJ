@@ -36,6 +36,9 @@ public class Graph {
 //		currentLocation - a city name, initialed to the value of start
 		String currentLocation;
 		
+//      Index for the shortest path!
+		int pathIndex=0;
+		
 		//Start Location and End Location
 		String startLoc;
 		String endLoc;
@@ -112,11 +115,13 @@ public class Graph {
 			if(pathQueue.get(i).getLength() > pathQueue.get(i+1).getLength())
 			{
 				currentPath = pathQueue.get(i+1);
+				pathIndex=i+1;
 			}
 			
 			else
 			{
 				currentPath = pathQueue.get(i);
+				pathIndex = i;
 			}	
 		}
 //		Set currentLocation to the last city in currentPath.
