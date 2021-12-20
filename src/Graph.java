@@ -108,27 +108,25 @@ public class Graph {
 			}
 
 
-			//		Dequeue the shortest path from pathQueue, storing it in currentPath.
+
 
 			//	      Index for the shortest path!
 			int pathIndex=0;
+			
 			for(int i=0; i< pathQueue.size(); i++)
 			{
 
+				//If the length of pathIndex is bigger than length at i
 				if(pathQueue.get(pathIndex).getLength() > pathQueue.get(i).getLength())
 				{
-					currentPath = pathQueue.get(i);
 					pathIndex=i;
-				}
-
-
-
-				currentPath = pathQueue.remove(pathIndex);
-
-				//		Set currentLocation to the last city in currentPath.
-				currentLocation = currentPath.getLastNode();
-
+				}		
 			}
+			//		Dequeue the shortest path from pathQueue, storing it in currentPath.
+			currentPath = pathQueue.remove(pathIndex);
+
+			//		Set currentLocation to the last city in currentPath.
+			currentLocation = currentPath.getLastNode();
 
 
 
