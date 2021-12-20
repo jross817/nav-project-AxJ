@@ -45,16 +45,10 @@ public class Path {
 		return length;
 	}
 	
-	public int getSize() {
+	
+	public void printPath()
+	{
 		
-		int count = 0;
-		
-		for (int i=0; i < pathNodes.size();i++)
-		{
-			count +=1;
-		}
-		
-		return count;
 	}
 
 }
