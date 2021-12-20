@@ -43,7 +43,7 @@ public class Main {
 			System.out.println();
 			System.out.println("Welcome to MapMe ! \n\n Please enter an option below: \n"
 					+ " 1) List Cities in Order \n 2) Display Info of a City \n 3) Search Cities "
-					+ "\n 4) FindPath \n 5) Add a City \n 6) Exit");
+					+ "\n 4) FindPath \n 5) Add a City \n 6) Add Edge to Existing \n 7) Exit");
 			Scanner input = new Scanner(System.in); // Create a Scanner object
 			String optionSelect = input.nextLine();
 
@@ -95,12 +95,24 @@ public class Main {
 			
 			}
 			
-			if(optionSelect.compareTo("6")==0)
+			//Add/Update an Edge
+			if(optionSelect.compareTo("6")==0) {
+				Scanner myObj = new Scanner(System.in);  // Create a Scanner object 
+				System.out.println("Enter a city to connect: ");
+				String cityA = myObj.nextLine();
+				System.out.println("Enter connecting city: ");
+				String cityB = myObj.nextLine();
+				System.out.println("Enter a distance between them: ");
+				String distance = myObj.nextLine();
+				Double dist = Double.parseDouble(distance);
+				newGraph.addEdge(cityA, cityB, dist);
+//			}
+			
+			if(optionSelect.compareTo("7")==0)
 			{
 				return;
 			}
 		}
-		
 		//Test for Path class
 //				ArrayList<String> foodPlaces = new ArrayList<String>();
 //				foodPlaces.add("Taco Bell");
@@ -111,6 +123,7 @@ public class Main {
 //				System.out.println("The last store added was "+ test.getLastNode());
 //				System.out.println("The total length of the test path is " + test.getLength());
 
+	}
 	}
 
 }

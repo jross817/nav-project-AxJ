@@ -50,10 +50,11 @@ public class Path {
 	{
 		System.out.print("The shortest path is: ");
 	
-		for(int i=0; i < pathNodes.size(); i++)
+		for(int i=0; i < pathNodes.size()-1; i++)
 		{
 			System.out.print(pathNodes.get(i)+ "-");
 		}
+		System.out.print(pathNodes.get(pathNodes.size()-1) + " : ");
 	}
 
 }

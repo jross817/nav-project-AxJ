@@ -27,6 +27,8 @@ public class Graph {
 	// and report it to the user. The output must 
 	// include the total distance and the distance of each link.
 
+
+
 	public void findPath() 
 	{
 
@@ -64,7 +66,8 @@ public class Graph {
 		Path currentPath = new Path(currentLocation);
 
 		//Add starter location to distance map with distance 0
-		distanceTable.put(startLoc, 0.0);
+		//		distanceTable.put(startLoc, 0.0); // DO NOT NEED
+
 
 		System.out.println("Please enter the end location: ");
 		endLoc = scan.nextLine();
@@ -96,7 +99,7 @@ public class Graph {
 						//Make new Path, copy previous, and add the city to that Path.
 						Path p1 = new Path(currentPath);
 
-						p1.addNode(adjCity,cities.get(loc).doubleValue()); 
+						p1.addNode(adjCity,p1.getLength() + cities.get(loc).doubleValue()); 
 						//Collect all of currLocation's adjacent cities and their distances and put them into pathQueue
 						pathQueue.add(p1);
 
@@ -110,9 +113,9 @@ public class Graph {
 
 
 
-			//	      Index for the shortest path!
+			//Index for the shortest path!
 			int pathIndex=0;
-			
+
 			for(int i=0; i< pathQueue.size(); i++)
 			{
 
@@ -129,20 +132,11 @@ public class Graph {
 			currentLocation = currentPath.getLastNode();
 
 
-
-
-
-			//		currentPath is now set to the best path! You can report it to the user.
-			currentPath.printPath();
 		}
+		//		currentPath is now set to the best path! You can report it to the user.
+		currentPath.printPath();
+		System.out.println(" Total Distance: " + currentPath.getLength());
 	}
-
-
-
-
-
-
-
 
 
 	// List cities in alphabetical order
